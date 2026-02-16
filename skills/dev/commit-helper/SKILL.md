@@ -1,0 +1,36 @@
+---
+name: commit-helper
+description: Impact-focused git commit messages. Use when the user wants to commit changes with a well-crafted message.
+---
+
+Prepare a git commit following these steps:
+
+1. Run `git status` and `git diff` to see changes
+2. Review recent commits (`git log --oneline -5`) to match the style
+3. Draft a concise commit message:
+  - Start with type prefix: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `chore:`
+  - **Focus on IMPACT and WHY, not implementation details**
+  - The title should describe the user-visible outcome or bug fixed
+  - Use bullet points (dash prefix) only if there are multiple distinct changes
+  - Keep each line under 72 characters
+  - No emojis
+4. Run the `developer_git_commit_proposal` tool to propose the commit to the user
+  - Do NOT run `git add` - the widget handles staging when the user confirms
+
+**Commit Message Guidelines:**
+- Lead with the problem solved or capability added, not the technique used
+- BAD: "feat: add pre-edit tagging for non-agentic AI providers"
+- GOOD: "fix: OpenAI/LMStudio diffs now persist across app restarts"
+- BAD: "refactor: extract helper function for validation"
+- GOOD: "fix: prevent crash when user input is empty"
+- The body can explain HOW if it's non-obvious, but title = IMPACT
+
+**Issue Linking (for auto-close):**
+- If fixing a Linear issue, include `Fixes NIM-XXX` on its own line after the title
+- For GitHub issues, use `Fixes #XXX` or `Closes #XXX`
+
+**Important:**
+- Do NOT add "Co-Authored-By" or any attribution lines
+- Do NOT add marketing taglines or links
+- Be direct and factual
+- Keep it brief - avoid unnecessary details about what wasn't changed
